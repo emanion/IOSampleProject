@@ -15,6 +15,41 @@ public class FormatOutputLine {
         outputLines = new ArrayList<>();
         
     }
+
+    public List<String> getOutputLines() {
+        return outputLines;
+    }
+
+    public void setOutputLines(List<String> outputLines)
+                throws IllegalArgumentException {
+        if (outputLines == null)
+            throw new IllegalArgumentException();
+        this.outputLines = outputLines;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 13 * hash + Objects.hashCode(this.outputLines);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final FormatOutputLine other = (FormatOutputLine) obj;
+        if (!Objects.equals(this.outputLines, other.outputLines)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
     
     public List getFormattedOutputLines(int lineCount, String line)
             throws InvalidFileFormatException {
@@ -67,6 +102,15 @@ public class FormatOutputLine {
         
         return outputLines;
     }
+
+    @Override
+    public String toString() {
+        
+        return "FormatOutputLine{" + "outputLines=" + outputLines + '}';
+    }
+    
+    
+    
     
     
 }
